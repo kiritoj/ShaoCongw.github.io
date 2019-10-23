@@ -1,28 +1,28 @@
 # Site settings
-title: TaoKe,逃课同学的博客
+title: TaoKe,逃课同学
 SEOTitle: 欢迎来到taoke的博客
 header-img: img/girl.jpg
-email: qiubaiying@gmail.com
+email: 2552744904@qq.com
 description: "酸甜苦辣的生活，永不停止的学习，期待诗和远方以及生命中的那个她"
 keyword: "taoke, 逃课, 逃课的博客, 陶克, 前端, 生活, 学习, 甜甜的，恋爱，她"
-url: "http://qiubaiying.github.io"          # your host, for absolute URL
+url: "http://shaocongw.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
+github_repo: "https://github.com/ShaoCongw/ShaoCongw.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "母胎solo，非渣男，甜甜的恋爱啥时候才轮到我啊"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "母胎solo，非渣男，甜甜的恋爱啥时候才轮到我啊，期待诗和远方以及生命中的那个她。感谢柏荧大佬的模板"
+sidebar-avatar: img/avatar_t_and_y.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
 # weibo_username:     qiubaiying
-zhihu_username:     qiubaiying
-github_username:    qiubaiying
-facebook_username:  baiying.qiu.7
-jianshu_username:   e71990ada2fd
+zhihu_username:     chang-shou-liang-liang-52
+github_username:    kiritoj
+#facebook_username:  baiying.qiu.7
+#jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
 
 
