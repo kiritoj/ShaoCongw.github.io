@@ -11,7 +11,7 @@ github_repo: "https://github.com/ShaoCongw/ShaoCongw.github.io.git" # you code r
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "母胎solo，非渣男，甜甜的恋爱啥时候才轮到我啊，期待诗和远方以及生命中的那个她。感谢柏荧大佬的教程"
+sidebar-about-description: "愿你脸上的皱纹，都是微笑待过的痕迹"
 sidebar-avatar: img/avatar_t_and_y.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
