@@ -146,4 +146,4 @@ $ ssh -T git@senond.github.com //@后面跟Host
 
 文末留下pljj的图片😀
 
-![](https://pic4.zhimg.com/80/v2-88cc06717bbd238b1c07fd20bbf27c46_hd.jpg)
+![](http://ww1.sinaimg.cn/large/006nB4gFly1g8behnkz7nj31z4140dmp.jpg)
