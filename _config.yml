@@ -12,7 +12,7 @@ github_repo: "https://github.com/ShaoCongw/ShaoCongw.github.io.git" # you code r
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "愿你脸上的皱纹，都是微笑待过的痕迹"
-sidebar-avatar: img/avatar_t_and_y.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: img/avatar_me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
