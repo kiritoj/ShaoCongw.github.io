@@ -144,6 +144,8 @@ $ ssh -T git@senond.github.com //@后面跟Host
 
 这样当我们在Git中配置的时第一个用户，只要clone的时候使用另一个HOST就可以对另一个Github上的仓库进行操纵了
 
+**补充**，**配置user.name和user.email的时候，经测试，name可以随意，改变email就可以改变commit的用户**，**也就是说，github是根据邮箱分辨是谁推送的**
+
 文末留下pljj的图片😀
 
 ![](https://pic4.zhimg.com/80/v2-88cc06717bbd238b1c07fd20bbf27c46_hd.jpg)
