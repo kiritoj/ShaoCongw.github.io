@@ -1,9 +1,9 @@
 # Site settings
 title: TaoKe😀
 SEOTitle: 欢迎来到taoke的博客
-header-img: img/girl.jpg
+header-img: img/yihuali.jpg
 email: 2552744904@qq.com
-description: "酸甜苦辣的生活，永不停止的学习，期待诗和远方以及生命中的那个她"
+description: "生活，学习，期待诗和远方以及生命中的那个她"
 keyword: "taoke, 逃课, 逃课的博客, 陶克, 前端, 生活, 学习, 甜甜的，恋爱，她,shaocong,yangshaocong,少聪，杨少聪"
 url: "http://shaocongw.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
