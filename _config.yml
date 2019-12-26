@@ -1,5 +1,5 @@
 # Site settings
-title: TaoKe,逃课同学
+title: TaoKe😀
 SEOTitle: 欢迎来到taoke的博客
 header-img: img/girl.jpg
 email: 2552744904@qq.com
@@ -11,8 +11,8 @@ github_repo: "https://github.com/ShaoCongw/ShaoCongw.github.io.git" # you code r
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "愿你脸上的皱纹，都是微笑待过的痕迹"
-sidebar-avatar: img/avatar_me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "想要甜甜的恋爱和进大厂"
+sidebar-avatar: img/avatar_me_black.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
