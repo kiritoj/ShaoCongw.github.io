@@ -1,17 +1,17 @@
 # Site settings
 title: TaoKe😀
 SEOTitle: 欢迎来到taoke的博客
-header-img: img/yihuali.jpg
+header-img: img/love.jpg
 email: 2552744904@qq.com
 description: "生活，学习，期待诗和远方以及生命中的那个她"
-keyword: "taoke, 逃课, 逃课的博客, 陶克, 前端, 生活, 学习, 甜甜的，恋爱，她,shaocong,yangshaocong,少聪，杨少聪"
+keyword: "taoke, 逃课, 逃课的博客, 陶克, 前端, 生活, 学习, 甜甜的，恋爱，曹晓瑾"
 url: "http://shaocongw.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/ShaoCongw/ShaoCongw.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "想要甜甜的恋爱和进大厂"
+sidebar-about-description: "终于等到甜甜的恋爱了hhh"
 sidebar-avatar: img/avatar_me_black.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
