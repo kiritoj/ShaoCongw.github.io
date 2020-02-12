@@ -43,7 +43,7 @@ synchronized(Object object){
   - 修饰普通方法
   - 修饰类静态方法
 
-  # 
+  #
 
 # 同步代码块
 
