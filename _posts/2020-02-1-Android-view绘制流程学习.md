@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      Android view绘制流程学习
+title:      Android MeasureSpec
 subtitle: 
-date:       2020-02-1
+date:       2020-03-6
 author:     taoke
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
