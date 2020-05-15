@@ -34,7 +34,7 @@ public abstract class Window {
 
 window类有一个实现类**PhoneWindow**，PhoneWindow提供了一系列窗口的方法，比如设置背景，标题等。每一个PhoneWindow对应一个**DecorView**
 
-DecorView是顶级View，包含一个LinerLayout，上面是标题栏（title），下面是内容栏（content），内容部分是一个ViewGroup，通过
+DecorView是顶级View，包含一个LinerLayout，上面是标题栏（title），下面是内容栏（android.R.id.content），内容栏是一个FrameLayout，通过
 
 ```java
 ViewGroup vg = findViewById(android.R.id.content);
@@ -42,11 +42,7 @@ ViewGroup vg = findViewById(android.R.id.content);
 
 可以获得它
 
-而在onCreat方法中setContentView方法正是给它设置布局，如何得到布局中的最大父元素呢
-
-```java
-View content = vg.getChildAt(0);
-```
+而在onCreat方法中setContentView方法正是给它设置布局，这部分详情查看另一篇博客
 
 
 
