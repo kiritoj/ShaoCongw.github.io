@@ -468,3 +468,4 @@ protected void measureChildren(int widthMeasureSpec, int heightMeasureSpec) {
 ```
 
 可见，在viewgroup中，会遍历所有子元素，获取他们的measureSpec，然后每个子元素调用自己的measure（）方法
+

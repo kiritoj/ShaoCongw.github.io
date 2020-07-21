@@ -47,7 +47,7 @@ synchronized(Object object){
 
 # 同步代码块
 
-## 加锁本地变量
+## 加锁类内部的属性——Increment类的test数组
 
 测试类
 
@@ -71,7 +71,7 @@ synchronized(Object object){
 
 ![](http://ww1.sinaimg.cn/large/006nwaiFly1gazm9s7piuj30i7044t91.jpg)
 
-可知，当同时有两个对象，只对测试类的本地变量加锁，无法保证同步
+可知，当同时有两个对象，只对测试类的本地变量加锁，无法保证同步。原因就是两个Increment对象都有自己的test数组，不能让对方的test数组加锁
 
 ## 加锁类静态变量
 
@@ -83,7 +83,7 @@ synchronized(Object object){
 
 ![](http://ww1.sinaimg.cn/large/006nwaiFly1gazmhjqgz6j30f5027q2x.jpg)
 
-多线程，多个变量调用也能保证同步性
+多线程，多个变量调用也能保证同步性。所有increment对象的test数组都是一样的。可以成功加锁。
 
 ## 加锁共享变量
 
@@ -146,3 +146,4 @@ synchronized(Object object){
 无论是同步方法还是同步代码块，都看成是检查锁，加锁，释放锁的过程，便于理解。
 
 **同步类静态方法等效于同步代码块中的加锁类对象**
+

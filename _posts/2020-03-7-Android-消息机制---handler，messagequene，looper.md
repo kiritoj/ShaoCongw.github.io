@@ -83,7 +83,7 @@ synchronized (this) {
 
 给要发送的msg的when属性赋值
 
-
+mMessages是消息头结点
 
 ```java
 if (p == null || when == 0 || when < p.when) {

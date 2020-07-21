@@ -64,7 +64,7 @@ String 经常作为参数，String 不可变性可以保证参数不可变。例
 
 **4. 线程安全**
 
-String 不可变性天生具备线程安全，可以在多个线程中安全地使用。
+String 不可变性天生具备线程安全，同一个字符串实例可以被多个线程共享，可以在多个线程中安全地使用。
 
 # String, StringBuffer and StringBuilder
 
@@ -137,7 +137,7 @@ String s2 = new String("abc");//方式2
 
 ![](http://ww1.sinaimg.cn/large/006nwaiFly1gblokn96x1j30la07ndgh.jpg)
 
-当**加号两边都是字符串常量值**的时候，如s2，编译时会被优化为s2 = “hello”,而s1创建以后，string pool中已经有一个hello引用了，所以直接返回该引用
+当**加号两边都是字符串常量值**的时候，如s2，编译时会被优化为s2 = “hello”,而s1创建以后，string pool中已经有一个hello引用了，所以直接返回该引用。如图s5创建了一个值为“hello”的对象，与常量池中的不同。
 
 **而对于所有包含new方式新建对象（包括null）或变量的“+”连接表达式，会在堆内存中新创建一个对象，且新对象的引用都不会被加入字符串池中**
 
@@ -166,6 +166,10 @@ intern方法的作用是手动将对对象的引用添加到string pool。
 如果string pool中已经存在具有相同值的对象的引用，则直接返回该引用，反之，添加引用到pool中
 
 ![](http://ww1.sinaimg.cn/large/006nwaiFly1gblpo1jre4j30l7070mxq.jpg)
+
+s1 = "abc",所以string pool中会有一个值为“abc”的引用，s1.intern()直接返回该引用
+
+s2.intern()返回的同样是这个引用，故相等。
 
 再看另外一个例子
 

@@ -46,6 +46,8 @@ elementData是一个Object数组，默认的构造方法给它设置为空数组
 
 # add方法
 
+在Add前扩容
+
 ![](http://ww1.sinaimg.cn/large/006nwaiFly1gctszgi2eej316g05qglu.jpg)
 
 
