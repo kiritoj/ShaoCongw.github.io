@@ -101,57 +101,72 @@ java实现
 ​	
 
 ```java
-public class HelloWorld {
-    String lock = "lock";
-    static final int FULL = 10;
-    int content = 0;
+public class OuterClass {
+
     public static void main(String[] args) {
-        HelloWorld helloWorld = new HelloWorld();
-        Produce produce = helloWorld.new Produce();
-        Comsumer comsumer = helloWorld.new Comsumer();
-        new Thread(produce).start();
-        new Thread(comsumer).start();
+        Queue<Integer> queue = new LinkedList<>();
+        //两个消费者，两个生产者
+        new Thread(new Producer(queue, 5)).start();
+        new Thread(new Producer(queue, 5)).start();
+        new Thread(new Consumer(queue)).start();
+        new Thread(new Consumer(queue)).start();
+
     }
-    class Produce implements Runnable{
+
+    static class Producer implements Runnable {
+        Queue<Integer> mQueue;
+        int mMaxSize;
+
+        public Producer(Queue<Integer> queue, int maxSize) {
+            mQueue = queue;
+            mMaxSize = maxSize;
+        }
 
         @Override
         public void run() {
-            while (true){
-                //一直生产
-                synchronized (lock){
-                    if (content == FULL){
-                        //缓冲池已满，wait线程
+            while (true) {
+                synchronized (mQueue) {
+                    while (mQueue.size() == mMaxSize) {
+                        //这里要用while才能应对多个生产者消费的情况
+                        //用if只能解决单一生产者和消费者的情况
                         try {
-                            lock.wait();
+                            mQueue.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
-                    content++;//生产产品+1
-                    System.out.println("当前缓冲区有："+content+"个产品");
-                    lock.notify();
+                    mQueue.add(1);
+                    System.out.println("生产者：现在已有产品" + mQueue.size() + "个");
+                    mQueue.notifyAll();
                 }
             }
         }
     }
 
-    class Comsumer implements  Runnable{
+    static class Consumer implements Runnable {
+        Queue<Integer> mQueue;
+
+        public Consumer(Queue<Integer> queue) {
+            mQueue = queue;
+
+        }
 
         @Override
         public void run() {
-            while (true){
-                synchronized (lock){
-                    if (content == 0){
-                        //缓冲区已经没有产品了，开始等待
+            while (true) {
+                synchronized (mQueue) {
+                    while (mQueue.isEmpty()) {
+                        //这里要用while才能应对多个生产者消费的情况
+                        //用if只能解决单一生产者和消费者的情况
                         try {
-                            lock.wait();
+                       mQueue.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
-                    content--;
-                    System.out.println("当前缓冲区有："+content+"个产品");
-                    lock.notify();
+                    mQueue.poll();
+                    System.out.println("消费者：现在已有产品" + mQueue.size() + "个");
+                    mQueue.notifyAll();
                 }
             }
         }
@@ -159,6 +174,78 @@ public class HelloWorld {
 
 }
 ```
+
+java也有信号量实现方式，还有阻塞队列实现方式
+
+<https://www.jianshu.com/p/f53fb95b5820>
+
+信号量实现
+
+```java
+Semaphore full = new Semaphore(0);
+Semaphore empty = new Semaphore(5);
+Semaphore mutex = new Semaphore(1);
+```
+
+```java
+class Producer implements Runnable {
+    Queue<Integer> mQueue;
+    int mMaxSize;
+
+    public Producer(Queue<Integer> queue, int maxSize) {
+        mQueue = queue;
+        mMaxSize = maxSize;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+
+                empty.acquire();
+                mutex.acquire();
+                mQueue.add(1);
+                System.out.println("生产者：现在已有产品" + mQueue.size() + "个");
+                mutex.release();
+                full.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    Queue<Integer> mQueue;
+
+    public Consumer(Queue<Integer> queue) {
+        mQueue = queue;
+
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                full.acquire();
+                mutex.acquire();
+                mQueue.poll();
+                System.out.println("消费者：现在已有产品" + mQueue.size() + "个");
+                mutex.release();
+                empty.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+}
+```
+
+阻塞队列实现
 
 
 
@@ -337,7 +424,13 @@ GC Roots如果可以通过引用链到达对象，证明此对象是可用的，
 * 活着的线程，包含处于等待或阻塞的线程
 * 当前被调用的方法（Java方法、native方法）的一些参数/局部变量
 
-
+> **a.** java虚拟机栈中的引用的对象。 
+>
+> ​    **b**.方法区中的类静态属性引用的对象。 （一般指被static修饰的对象，加载类的时候就加载到内存中。）
+>
+> ​    **c**.方法区中的常量引用的对象。 
+>
+> ​    **d**.本地方法栈中的JNI（native方法）引用的对象
 
 **垃圾回收算法**
 
@@ -361,9 +454,9 @@ GC Roots如果可以通过引用链到达对象，证明此对象是可用的，
 
 * 标记-整理
 
-  1.标记可回收对象
+  1.标记	
 
-  2.整理，将存活对象都向其中一端整理。在清除内存。
+  2.整理，将存活对象都向其中一端整理。清理掉端边界以外的内存。
 
   解决碎片的问题，引入了移动对象的成本
 

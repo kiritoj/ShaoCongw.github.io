@@ -7,8 +7,24 @@ author:     taoke
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
-    - 项目
+    - 四大组件
 ---
+
+# 生命周期
+
+![](https://picb.zhimg.com/v2-4bccc6d2b4b2459a2b386e6e7f417aab_r.jpg)
+
+可以看到，两种服务的启动方式，生命周期不一样：
+
+startService：
+
+onCreat（只执行一次），onStartConmoned，onDestory
+
+bingService：
+
+onCreate->onBind ->onUnbind ->onDestory
+
+onUnBind要等到所有绑定者解除绑定才会执行
 
 # startService启动服务
 
@@ -387,4 +403,36 @@ class PlayControlReceiver: BroadcastReceiver() {
 将remoteview添加到notification中
 
 ![](http://ww1.sinaimg.cn/large/006nwaiFly1gcsfoq7i1hj31d70jc1kx.jpg)
+
+
+
+服务的两种启动方式的区别：
+
+先说生命周期
+
+**srart**方式：
+
+通过stopservice关闭服务
+
+一旦服务开启，服务就跟开启者没有关系了。
+
+开启者退出了服务也不会跟着退出
+
+开启者和服务不能通信
+
+
+
+**bind**方式
+
+通过unbindservice方式关闭服务
+
+服务的存活和绑定者有关，一但绑定者退出，服务就结束。
+
+如果有多个绑定者，需要全部解除绑定或者退出
+
+绑定者可以和服务通信
+
+
+
+
 
