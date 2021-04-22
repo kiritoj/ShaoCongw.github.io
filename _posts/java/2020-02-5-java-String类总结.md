@@ -77,7 +77,7 @@ String 不可变性天生具备线程安全，同一个字符串实例可以被�
 
 - String 不可变，因此是线程安全的
 - StringBuilder 不是线程安全的，效率高
-- StringBuffer 是线程安全的，内部使用 synchronized 进行同步
+- StringBuffer 是线程安全的，内部使用 synchronized 进行同步（同步append，内部调用AbstractStringBuilder的append()）
 
 # 字符串常量池
 
