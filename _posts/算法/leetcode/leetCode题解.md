@@ -391,7 +391,7 @@ class Solution {
             for(int j = 1; j <=n; j++){
                 if(p.charAt(j - 1) == '*'){
                     if(match(s,p,i,j-1)){
-                        f[i][j] = f[i][j-2] || f[i-1][j];
+                        f[i][j] = f[i-1][j] || f[i][j-2];
                     }else{
                         f[i][j] = f[i][j-2];
                     }
@@ -464,18 +464,17 @@ class Solution {
         ListNode temp = new ListNode(0);
         temp.next = head;
         ListNode node1 = temp;
-        ListNode node2 = temp;
+        ListNode node2 = head;
 
-        for(int i = 0; i < n+1; i++){
+        for(int i = 0; i < n-1; i++){
             node2 = node2.next;
         }
-        while(node2 != null){
+        while(node2.next != null){
             node1 = node1.next;
             node2 = node2.next;
         }
         node1.next = node1.next.next;
         return temp.next;
-
     }
     }
 ```
